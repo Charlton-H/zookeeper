@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/Charlton-H/zookeeper/issues"
   },
-  "homepage": "https://github.com/Charlton-H/zookeeper#readme"
+  "homepage": "https://github.com/Charlton-H/zookeeper#readme",
+  "dependencies": {
+    "express": "^4.17.2"
+  }
 }
