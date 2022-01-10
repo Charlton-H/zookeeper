@@ -9,6 +9,10 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 // parse incoming JSON data
 app.use(express.json());
+// express.static() method that provides a file path to folder that houses other necessary files
+// without need of creating seperate server endpoint
+// Every time we create a server that will serve a front end as well as JSON data, we'll always want to use this middleware.
+app.use(express.static("public"));
 
 function filterByQuery(query, animalsArray) {
   let personalityTraitsArray = [];
@@ -105,6 +109,10 @@ app.get("/api/animals/:id", (req, res) => {
   } else {
     res.send(404);
   }
+});
+
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "./public/index.html"));
 });
 
 app.post("/api/animals", (req, res) => {
