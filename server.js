@@ -111,7 +111,24 @@ app.get("/api/animals/:id", (req, res) => {
   }
 });
 
+// route for index.html
 app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "./public/index.html"));
+});
+
+// route for animals.html
+app.get("/animals", (req, res) => {
+  res.sendFile(path.join(__dirname, "./public/animals.html"));
+});
+
+// route for zookeepers.html
+app.get("/zookeepers", (req, res) => {
+  res.sendFile(path.join(__dirname, "./public/zookeepers.html"));
+});
+
+// wildcard route back to index.html
+// wildcard should always come last, else will take precedence over named routes
+app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "./public/index.html"));
 });
 
